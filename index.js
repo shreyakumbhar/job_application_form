@@ -83,7 +83,7 @@ app.get('/delete/:id', async (req, res) => {
 
         var sql = `delete from jobapplication where user_id='${id}'`;
         await connection.execute(sql);
-        // res.send("<h1>Deleted...</h1>" + id)
+    
 
 
         res.redirect('/applicationdata')
@@ -106,7 +106,7 @@ app.get('/edit/:id', async (req, res) => {
 
         var sql = `select * from jobapplication where user_id='${id}'`
 
-        //execute method return-  [rows,fileds]
+  
         const [result] = await connection.execute(sql);
         console.log(result[0])
 
@@ -114,7 +114,7 @@ app.get('/edit/:id', async (req, res) => {
         const obj = { data: result[0] }
 
         res.render('UpdateForm.ejs', obj)
-        // res.send("EDit Product" + id);
+  
 
 
     } catch (err) {
@@ -140,7 +140,7 @@ app.post('/updateform', upload.single("userresume"),async (req, res) => {
             await connection.execute(sql, [req.file.filename, user_id]);
         }
 
-        // Update other fields
+     
         const sql2 = `UPDATE jobapplication
                       SET username = ?,
                           useremail = ?,
@@ -149,7 +149,6 @@ app.post('/updateform', upload.single("userresume"),async (req, res) => {
                       WHERE user_id = ?`;
         await connection.execute(sql2, [username, useremail, usermobile, position, user_id]);
 
-        // res.send("Updated .....")
 
         res.redirect('/applicationdata')
 
