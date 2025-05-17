@@ -15,13 +15,11 @@ var connection = require("./config/db");
 
 var multer = require("multer");
 
-// file upload
 
-// Returns a StorageEngine implementation configured to store files on the local file system.
 const storage = multer.diskStorage({
   destination: "public/uploads/",
   filename: (req, file, cb) => {
-    //store unique file name using current time i.e Date.now()
+ 
     cb(null, Date.now() + file.originalname);
   },
 });
