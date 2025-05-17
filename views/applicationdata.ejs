@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>   td
+    {
+        background-color:rgba(115, 223, 205, 0.822);
+        color: black;
+    }
+    th{
+        background-color: black;
+        color: white;
+    }
+    button
+    {
+        padding: 15px;
+        border: none;
+        background-color: rgb(178, 203, 52);
+        color: white;
+        border-radius: 10px;
+    }</style>
+</head>
+
+<body>
+
+
+    <h1>Application Data</h1>
+        <a href="/"><button>Add User</button></a>
+
+    <hr>
+
+
+    <table border="1" cellspacing="0" cellpadding="10" style="width: 100%;">
+
+        <tr>
+            <th>SR No</th>
+    
+            <th> Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Position</th>
+            <th>Resume</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+
+
+
+        <%data.map((val,index)=>{ %>
+
+            <tr>
+
+                <td><%=index+1%></td>
+              
+                <td><%-val.username%></td>
+                <td><%-val.useremail%></td>
+                <td><%-val.usermobile%></td>
+                <td><%-val.position%></td>
+                <td><%-val.userresume%></td>
+                <td onclick="return confirm('Are You Sure ? ')"><a href="/delete/<%-val.user_id%>"><button>Delete</button></a></td>
+                <td><a href="/edit/<%-val.user_id%>"><button>Edit</button></a></td>
+            </tr>
+
+            <% })%>
+
+    </table>
+
+</body>
+
+</html>

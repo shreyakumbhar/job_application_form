@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%-include('cdn.ejs')%>
+</head>
+<body>
+     <div class="container mt-5">
+        <div class="row justify-content-center fw-bold ">
+            <div class="col-md-6 shadow-lg p-3">
+                <h2 class="text-center mb-4">Job Application Form </h2>
+
+
+                <form action="/saveform" method="post" enctype="multipart/form-data">
+                     <div class="mb-3">
+                        <label for="username" class="form-label">Fullname</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                            placeholder="Enter email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="useremail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="useremail" name="useremail"
+                            placeholder="Enter email" required>
+                    </div>
+
+
+                 
+                    <div class="mb-3">
+                        <label for="usermobile" class="form-label">Mobile</label>
+                        <input type="tel" class="form-control" id="usermobile" name="usermobile"
+                            placeholder="Enter mobile number" required>
+                    </div>
+
+                    
+                   
+
+            
+
+                          <label for=""> Position</label>
+        <select name="position" id="position" class="form-control">
+         
+         <option value="Fontend">Fontend</option>
+            <option value="Backend">Backend</option>
+            <option value="MERNSTACK">MERNSTACK</option>
+      
+
+        </select>
+                    
+                        
+                  
+
+
+                      <div class="mb-3">
+                        <label for="userresume" class="form-label">Upload Resume</label>
+                        <input type="file" class="form-control" id="userresume" name="userresume" required>
+                    </div>
+
+
+
+
+                    <div class="col-md-12 text-center fw-bold">
+                        <button type="submit" class="btn btn-danger fw-bold">Submit</button>
+                        <!-- <p>Already Have An Account <a href="/login" class="text-decoration-none">Login</a> </p> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%-include('cdn.ejs')%>
+</head>
+<body>
+     <div class="container mt-5">
+        <div class="row justify-content-center fw-bold ">
+            <div class="col-md-6 shadow-lg p-3">
+                <h2 class="text-center mb-4">Update Form</h2>
+
+
+                <form action="/updateForm" method="post" enctype="multipart/form-data">
+
+                       <input type="hidden" name="user_id" value="<%-data.user_id%>" id="">
+                     <div class="mb-3">
+                        <label for="username" class="form-label">Update Fullname</label>
+                        <input type="text" class="form-control" id="username" name="username" value="<%-data.username%>"
+                            placeholder="Enter email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="useremail" class="form-label"> Update Email</label>
+                        <input type="email" class="form-control" id="useremail" name="useremail" value="<%-data.useremail%>"
+                            placeholder="Enter email" required>
+                    </div>
+
+
+                 
+                    <div class="mb-3">
+                        <label for="usermobile" class="form-label"> Update Mobile</label>
+                        <input type="tel" class="form-control" id="usermobile" name="usermobile" value="<%-data.usermobile%>"
+                            placeholder="Enter mobile number" required>
+                    </div>
+
+                    
+                   
+
+                        
+                 
+
+
+                          <label for="">Update Position</label>
+        <select name="position" id="position" class="form-control">
+
+         <option value="Fontend"  <%-(data.position=='Fontend' ? 'selected' : null )%>>Fontend</option>
+            <option value="Backend" <%-(data.position=='Backend' ? 'selected' : null )%> >Backend</option>
+            <option value="MERNSTACK" <%-(data.position=='MERNSTACK' ? 'selected' : null )%>>MERNSTACK</option>
+      
+
+        </select>
+                    
+                        
+                  
+
+
+                      <div class="mb-3">
+                 
+
+
+<label>Uploaded Resume:</label>
+  <% if (data.userresume) { %>
+    <p>Current file: <%= data.userresume %></p>
+  <% } else { %>
+    <p>No resume uploaded yet.</p>
+  <% } %>
+
+  <label>Update Resume:</label>
+  <input type="file" name="userresume" accept=".pdf,.doc,.docx" class="form-control">
+                    </div>
+
+
+
+
+                    <div class="col-md-12 text-center fw-bold">
+                        <button type="submit" class="btn btn-danger fw-bold">Submit</button>
+                        <!-- <p>Already Have An Account <a href="/login" class="text-decoration-none">Login</a> </p> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
